@@ -20,7 +20,12 @@ services:
     depends_on:
       - mysql
     container_name: phpmyadmin
-  
+    networks:
+      - default
+networks:
+  default:
+    external:
+      name: nginx_proxy  
 # login ssh to container mysql
 # mysql -u root -p
 # GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
