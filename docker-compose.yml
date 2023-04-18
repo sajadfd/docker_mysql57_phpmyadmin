@@ -5,10 +5,14 @@ services:
     image: mysql:5.7
     restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD: YOUR_ROOT_PASSWORD
+      MYSQL_ROOT_PASSWORD: hn=0u4/O1^xZ2@!1da423wer
+    ports:
+      - 3306:3306      
     volumes:
       - ./mysql:/var/lib/mysql
     container_name: mysql
+    networks:
+      - default
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -25,7 +29,7 @@ services:
 networks:
   default:
     external:
-      name: nginx_proxy  
+      name: nginx_proxy
 # login ssh to container mysql
 # mysql -u root -p
 # GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
